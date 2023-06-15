@@ -1,0 +1,8 @@
+header {
+  height: 112px;
+  background: #333;
+  line-height: 112px;
+}
+nav {
+  float: right;
+}
