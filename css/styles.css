@@ -2,7 +2,57 @@ header {
   height: 112px;
   background: #333;
   line-height: 112px;
+  color: #fff;
 }
 nav {
   float: right;
+}
+header .logo{
+ font-size: 36px;
+}
+
+header #menu {
+  width: 200px;
+}
+
+header ul{
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+header ul li{
+  height: 3em;
+  line-height: 3em;
+  border-bottom: 1px solid rgba(255,255,259,0.1);
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+header a {
+  color:#fff;
+}
+.login a, .register a {
+  padding: 0px;
+  padding: 5px 20px;
+  border-radius: 3px;
+}
+nav ul {
+  background-color: #333;
+}
+/* //------------------------------slider styles -------------------*/
+
+.slider
+{
+  width: 100%;
+  height: 700%;
+  position: relative;
+  background: url("img/slider-img.jpeg");
+  background-size: 100% 100%;
+}
+canvas{
+  display: block;
+
+}
+#particles{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
 }

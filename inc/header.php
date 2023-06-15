@@ -1,7 +1,6 @@
 
 <?php
 @session_start();
- $_SESSION["user"]="Me";
 //aici facem o verificare sa vedem daca este useru logat ()
 if(isset($_SESSION["user"])){
     $session= $_SESSION["user"];
@@ -22,6 +21,7 @@ if(isset($_SESSION["user"])){
     <script type="text/javascript" >
         window.jQuery || document.write('<script src="js/jquery.js">\x3c/script>');
     </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -42,16 +42,16 @@ if(isset($_SESSION["user"])){
     <header>
        <div class="container">
         <div class="">
-            <a href="#" class="logofloat-left">Photo Gallery </a>
-            <nav class="">
+            <a href="#" class="logo float-left">Photo Gallery </a>
+            <nav class="right">
 
                 <!-- folosoim butonu pentru a sesisune -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    
+                <button class="navbar-toggler green-bg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+     
                 <i class="fa fa-navicon"></i>
         </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul>
+        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+                    <ul class="center">
                         <li><a href="">Home</a></li>
                         <li><a href="">Gallery</a></li>
                         <li><a href="">About</a></li>
@@ -59,29 +59,16 @@ if(isset($_SESSION["user"])){
                         <?php
                         if($session==null){
                         ?>
-                        <li><a href="">Login</a></li>
-                        <li><a href="">Register</a></li>
+                        <li class="login"><a href="" class="blue-bg">Login</a></li>
+                        <li class="register"><a href="" class="primary-bg">Register</a></li>
                         <?php
                         }
                         else{
                           ?>  
-                        <li><a href="">Logout</a></li>
+                        <li class="logout"><a href="" class="primary-bg">Logout</a></li>
                        <?php
                         }
                        ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </ul>
                 </div>
             </nav>
