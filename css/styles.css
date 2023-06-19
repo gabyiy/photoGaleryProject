@@ -1,8 +1,11 @@
 header {
   height: 112px;
-  background: #333;
+  /* background: #333; */
   line-height: 112px;
   color: #fff;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 nav {
   float: right;
@@ -29,30 +32,114 @@ header ul li{
 header a {
   color:#fff;
 }
-.login a, .register a {
+.login a, .register a .logout a{
   padding: 0px;
   padding: 5px 20px;
   border-radius: 3px;
 }
 nav ul {
-  background-color: #333;
+  background-color: rgba(0,0,0,0.5);
 }
 /* //------------------------------slider styles -------------------*/
 
 .slider
 {
-  width: 100%;
-  height: 700%;
-  position: relative;
-  background: url("img/slider-img.jpeg");
-  background-size: 100% 100%;
+	width: 100%;
+	height: 700px;
+	position: relative;
+	background-image: url('https://media.istockphoto.com/id/1059076792/photo/madrid-city-skyline-gran-via-street-twilight-spain.jpg?s=612x612&w=0&k=20&c=jQbBLWmR46lkJl-_OsYKLcykBweSNpf61H6NmcaHQxE=');
+	background-size: 100% 100%;
 }
-canvas{
-  display: block;
+
+canvas
+{
+	display: block;
+}
+
+#particles
+{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.slider .slider-content{
+  position: absolute;
+  top: 20%;
+  width: 100%;
+}
+.slider-content h1{
+  top: 25%;
+}
+.slider-content .text-rotator{
+  font-size: 48px;
+}
+.slider-content .call-to-action{
+
+  margin-top: 40px;
 
 }
-#particles{
+
+.slider-content a.cta{
+  font-size: 24px;
+}
+.cta{
+  padding: 10px 50px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.cta:hover{
+  color: #fff;
+  background-color: #d35400;
+}
+
+.cta:after{
+  content: "";
+  position: absolute;
+  top:0px;
+  left: 0px;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8);
+  border: 1px solid #d35400;
+ opacity: 1;
+ transition: transform 0.5s ease ,opacity 0.7s ease;
 }
+
+.cta:hover:after{
+  transform: scale(1.2);
+  opacity: 0;
+
+}
+
+/*****************form styling****************/
+
+form{
+  /* asa centram un div */
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+form input, form textarea{
+
+  display: block;
+  margin-bottom: 40px;
+  width: 100%;
+
+}
+form textarea{
+  padding-top: 10px;
+}
+form input{
+  height: 40px;
+  padding-left: 15px;
+}
+input [type=submit]{
+width: 30px;
+text-align: center;
+
+padding: 0px;
+
+}
+
