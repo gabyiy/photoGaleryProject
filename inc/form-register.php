@@ -115,9 +115,9 @@ if(isset($_POST["submit"])){
     }else if (strlen($_POST["password"])>25){
         $error[]="Please enter a password that have less the 25 chars";
     }else{
-        $password =sanitize( $_POST["password"]);
+        $password =sanitize($_POST["password"]);
         if(!empty($_POST["confirm-passord"])){
-            if($_POST["confirm-passord"]!= $_POST["confirm-password"]){
+            if($_POST["confirm-passord"]!= $password){
             $error[]="You r password don match";
             }else{
                 $error[]="Confirm you r password";
