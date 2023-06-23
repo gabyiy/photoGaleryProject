@@ -12,6 +12,7 @@
 </form>
 
 <div class="error"></div>
+<div class="success"></div>
 </section>
 
 
@@ -31,8 +32,21 @@ $error= array();
  }
 
 
- function changeProfileInfo($fName,$lName,$username,$email,$password,$bio){
+ function changeProfileInfo($fName,$lName,$username,$email,$password,$bio,$con){
 
+    $query ="Update users set fName = $fName, lName=$lName, username=$username, email=$email,password=
+    $password , bio=$bio where username= $username";
+
+    $query_run= mysqli_query($con, $query);
+
+  if($query_run){
+ ?>
+ <script type="text/javascript">
+
+    $(".success").append("Update succesufuly");
+ </script>
+ <?php
+  }
  }
 if(isset($_POST['submit'])){
 
@@ -70,7 +84,7 @@ if (strlen($_POST['bio'])>100){
     $bio = sanitize($POST['bio']);
 }
 if(count($error)==0){
-    changeProfileInfo($fName,$lName,$username,$email,$password,$bio);
+    changeProfileInfo($fName,$lName,$username,$email,$password,$bio,$con);
 }else{
 
     foreach($error as $key =>$value){

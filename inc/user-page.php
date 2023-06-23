@@ -17,7 +17,7 @@ include "inc/db.inc.php";
             <!-- folosim functia asta pentru a scoate datele userului -->
             <div class="profile-information" style="display:flex"> 
             <?php get_profile_info($con,$session) ;?>
-            <p><a href="#">Change profile information</a></p>
+            <p><a href="change-profile-info.php">Change profile information</a></p>
 
             </div>
         </div>
