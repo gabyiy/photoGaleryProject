@@ -36,4 +36,55 @@ $bio="";
     }
 
 }
+
+
+function get_avatar_image( $user){
+
+    $pic=0;
+
+    //aici cream folderu mai si dupa folderu userului
+$upload_folder = "uploads";
+
+$user_folder = $upload_folder."/".$user;
+
+$avatar_image_folder = $user_folder."/"."avatar";
+
+//asa verificam daca sunt create folderurile, daca nu sa le cream
+if(is_dir($upload_folder)){
+
+    if (is_dir($user_folder)){
+
+       
+    }else{
+        mkdir($user_folder);
+
+    }
+}else{
+    mkdir($upload_folder);
+    
+}
+if(is_dir($avatar_image_folder)){
+
+}else{
+    mkdir($avatar_image_folder);
+}
+
+//si aici verificam daca avem vrun fisier in avatar in image folder, il deschidem si apoi il citim
+
+if($handle = opendir($avatar_image_folder)){
+
+    while(false!==($entry=readdir($handle))){
+        if(($entry !=".")and ($entry!="..")){
+            $pic=1;
+            $avatar_image_path= $avatar_image_folder."/".$entry;
+            echo "<img src=$avatar_image_path alt=$entry id=avatar-image-id width='300px'/>";
+        }
+    }
+    closedir($handle);
+}
+//si asa specificam ca in caz ca useru nu are nici o imagine sa folosesca default image
+if($pic==0){
+    echo "<img src='img/user-default.jpg' id=avatar-image-id height='200px' width='300px'/>";
+}
+}
 ?>

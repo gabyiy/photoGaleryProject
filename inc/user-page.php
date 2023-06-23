@@ -9,9 +9,13 @@ include "inc/db.inc.php";
 <h1>Welcome <?php echo ucfirst($session) ;?></h1>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="">
         <div class="col-md-4 avatar"></div>
         <h2>Avatar</h2>
+        <?php  get_avatar_image( $session);?>
+        <div class="upload-avatar">
+            <input type="file" name="user-avatar-upload" id="user-avatar-upload"/>
+        </div>
         <div class="col-md-8 profile">
             <h2>Profile Info</h2>
             <!-- folosim functia asta pentru a scoate datele userului -->
