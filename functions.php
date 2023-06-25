@@ -87,4 +87,6 @@ if($pic==0){
     echo "<img src='img/user-default.jpg' id=avatar-image-id height='200px' width='300px'/>";
 }
 }
+
+
 ?>

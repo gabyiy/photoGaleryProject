@@ -29,7 +29,14 @@ include "inc/db.inc.php";
 </div>
 </section>
 <section class="upload-image">
-
+<div class="section-header center">
+    <h2>
+        Upload new image
+    </h2>
+</div>
+<form method="post" enctype="multipart/form-data" name="upload-image" >
+    <input type="file" name="new-image" id="new-image"/>
+</form>
 </section>
 <section class="user-galery">
 
