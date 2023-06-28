@@ -39,5 +39,14 @@ include "inc/db.inc.php";
 </form>
 </section>
 <section class="user-galery">
-
+    <div class="section-headet">
+<h2>You r uploaded images</h2>
+    </div>
+    <div class="">
+        <div>
+            <div class="user_uploaded_pic center">
+<?php  get_user_uploaded_pics($con,$session)?>
+</div>
+</div>
+</div>
 </section>

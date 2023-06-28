@@ -87,23 +87,18 @@ $("#new-image").on("change",function(){
   //si daca totu est ok incercam sa uploadam poza de avatar
   else {
 //creem o instanta formData
-    var formData = new FormData();
-    //aici facem un append pentru a  urca imaginea care este avatarFile si la inceput ii adaugam denumirea de avatar
-    formData.append("file1",file);
+var formdata = new FormData();
+formdata.append('file1',file);
+var xhr = new XMLHttpRequest();
+xhr.addEventListener("load",loadedhandler,false);
+xhr.open('POST','fileupload.php');
+xhr.send(formdata);
 
-    //creem un http req
-    var xhr =new XMLHttpRequest();
-//adaugam un eventListner on load si dupa utilizam functia care o sa uploadeze
-    xhr.addEventListener("load",loadhandler,false);
-    //iar aici cu post facem un requeste la file-upload
-    xhr.open("POST","fileupload.php");
-    //si aici trimitem data 
-    xhr.send(formData)
 
     //iar aici creem functia care o sa uploadeze in src ce primim in echo de la avatarchange
 
-    function loadhandler(evt){
-    alert  (evt.target.responseText); 
+    function loadedhandler(evt){
+      $('#user-uploaded-pics').prepend("<div class='col-md-4'><img src="+evt.target.responseText+"></div>");
 
     }
   }
@@ -113,3 +108,54 @@ $("#new-image").on("change",function(){
 
 });
 
+function lol(){
+  alert("gg");
+}
+
+function approveimage (id)
+{
+   //am creat varu asta pentru a vedea de forma dinamica dacapoza este aprobata sau nu
+
+var rowid = "row-"+id;
+$.ajax({
+  url:'approve.php',
+  //aici specificam ce dorimi sa trimitem
+
+  data:{id:id},
+  type:'post',
+  //si aici o sa avem raspunsu de la apagina approved
+  success:function(result)
+  {
+    $('#row-'+id).hide(2000);
+    alert(result);
+  }
+
+
+
+
+  })
+}
+
+function deleteimage (id)
+{
+  //am creat varu asta pentru a vedea de forma dinamica dacapoza este aprobata sau nu
+  var rowid="row-"+id;
+
+  $.ajax =({
+url:"deleteImage.php",
+//aici specificam ce dorimi sa trimitem
+data:{id:id},
+type:"post",
+//si aici o sa avem raspunsu de la apagina approved
+success:function(result)
+
+{
+
+  $('#row-'+id).hide(2000);
+
+  alert(result);
+
+}
+
+  })
+}

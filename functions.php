@@ -89,4 +89,56 @@ if($pic==0){
 }
 
 
+function get_user_uploaded_pics($con,$username){
+    //cu order by specificam ca dorim sa vedem imaginile in functie de cum au fost uploadate
+    $query ="select * from pics where username = '$username' order by pid desc";
+    $query_run = mysqli_query($con, $query); 
+    if(mysqli_num_rows($query_run)>0){
+
+        while($row = mysqli_fetch_assoc($query_run)){
+            $pId= $row["pid"];
+            $img= $row["picname"];
+            $path = "uploads/".$username."/".$img;
+
+            ?>
+            <div class=" col-md-4"><img src="<?php echo $path ; ?>"/></div>
+<?php
+
+        }
+    }
+}
+
+function get_unapproved_pics($con){
+    $approved = 0;
+    $query = "select * from pics where approved='$approved'";
+
+$query_run = mysqli_query($con,$query);
+
+if(mysqli_num_rows($query_run)>0){
+while($row=mysqli_fetch_assoc($query_run)){
+	$pid = $row['pid'];
+				$picname = $row['picname'];
+				$uname = $row['username'];
+				$src = 'uploads/'.$uname.'/'.$picname;
+				?>
+				<div id="row-<?php echo $pid;?>">
+					<div class="col-md-4">
+						<img src="<?php echo $src;?>" id="<?php echo $pid;?>"/>
+					</div>
+					<div class="col-md-4">
+						<?php echo $picname; ?>
+					</div>
+</div>
+<div class="col-md-4">
+						<button id="yes-<?php echo $pid;?>" onclick=lol()>Yes</button>
+						<button id="no-<?php echo $pid;?>" onclick=deleteimage(<?php echo $pid;?>)>No</button>
+					</div>
+</div>
+<div class="clearfix"></div>
+<?php
+}
+}
+
+}
+
 ?>

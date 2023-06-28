@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include "inc/header.php";
 include "inc/slider.php";
 if($session!=null){

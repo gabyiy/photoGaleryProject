@@ -35,7 +35,7 @@ if(isset($_SESSION["user"])){
 <script src="https://kit.fontawesome.com/6230d4baa3.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="css/reset.css">
 
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 <title>Document</title>
 </head>
 <body>
